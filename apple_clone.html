@@ -35,6 +35,7 @@
         <!-- 첫번째 페이지 -->
         <section class="scroll-section" id="scroll-section-0">
             <h1>종라기의 연습장</h1>
+
             <div class="sticky-elem main-message"> 
                 <p>종락기의 집에가고싶은<br> 프로젝트</p>
 
@@ -114,6 +115,7 @@
 
     </div>
     
+    <script src="main.js"></script>
 </body>
 </html>
 
@@ -262,6 +264,35 @@ a{
     height: 7rem;
     background: yellow;
 }
+
+.sticky-elem {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#show-scene-0 #scroll-scene-0 .sticky-elem,
+#show-scene-1 #scroll-scene-1 .sticky-elem,
+#show-scene-2 #scroll-scene-2 .sticky-elem,
+#show-scene-3 #scroll-scene-3 .sticky-elem{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (min-width: 1024px){
     #scroll-section-0 h1 {
