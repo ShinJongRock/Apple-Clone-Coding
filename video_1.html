@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			height: 9000vh;
+		}
+		body.before-load {
+			overflow-y: hidden;
+		}
+		.sample-video {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 80%;
+		}
+        .a {
+            display: flex;
+			justify-content: end;
+            margin-left: 0;
+            font-size: 200px;
+            
+            
+        }
+	</style>
+</head>
+<body class="before-load">
+	<video class="sample-video" src="./video/mac.mp4" muted></video>
+	<!-- <video class="sample-video" src="../video/sample-high.mp4" muted></video> -->
+    <div>
+      
+            <h2 class="a">
+                잘되노
+            </h2>
+            
+        
+    
+    </div>
+
+	<script>
+		const videoElem = document.querySelector('.sample-video');
+		let progress;
+		let currentFrame;
+		function init() {
+			document.body.classList.remove('before-load');
+
+			window.addEventListener('scroll', function () {
+				progress = pageYOffset / (document.body.offsetHeight - window.innerHeight);
+				console.log(progress);
+				if (progress < 0) progress = 0;
+				if (progress > 1) progress = 1;
+
+				videoElem.currentTime = videoElem.duration * progress;
+			});
+		}
+
+		window.addEventListener('load', init);
+	</script>
+</body>
+</html>

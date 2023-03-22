@@ -72,8 +72,15 @@
         document.body.setAttribute('id', `show-scene-${currentScene}`); //바디에 아이디 넣기
     }
 
-    function calcValues(values, currentYOffset){
 
+
+    function calcValues(values, currentYOffset){
+        let rv;
+        let scrollRatio =  currentYOffset/ sceneInfo[currentScene].scrollHeight;
+        
+        rv = scrollRatio * (values[1] - values[0]) + values[0];
+
+        return rv;
     }
 
     function platAnimation(){
@@ -83,10 +90,8 @@
 
         switch (currentScene){
             case 0 :
-                let messageA_opacity_0 = values.values.messageA_opacity[0];
-                let messageA_opacity_1 = values.values.messageA_opacity[1];
-                // let messageA_opacity_2 = values.values.messageA_opacity[2];
-                // let messageA_opacity_3 = values.values.messageA_opacity[3];
+                let messageA_opacity_in = calcValues(values.messageA_opacity, currentYOffset);
+                objs.messageA.style.opacity = messageA_opacity_in;
                 break;
             case 1:
                 break;
