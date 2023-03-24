@@ -69,7 +69,7 @@
                 break;
             }
         }
-        document.body.setAttribute('id', `show-scene-${currentScene}`); //바디에 아이디 넣기
+        // document.body.setAttribute('id', `show-scene-${currentScene}`); //바디에 아이디 넣기
     }
 
 
@@ -108,28 +108,29 @@
     function scrollLoop(){
         prevScrollHeight = 0;
         for (let i = 0; i < currentScene; i++){
-            prevScrollHeight = prevScrollHeight + sceneInfo[i].scrollHeight;
+            prevScrollHeight += sceneInfo[i].scrollHeight;
         }
 
         if(yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight){
             currentScene++;
+            
         }
 
         if(yOffset < prevScrollHeight){
-            if(currentScene === 0) return
+            if(currentScene === 0) return;
             currentScene--;
         }
-        // console.log(currentScent);
+    
 
         document.body.setAttribute('id', `show-scene-${currentScene}`); //바디에 아이디 넣기
 
     }
 
-    window.addEventListener('resize', setLayout);
     window.addEventListener('scroll', () => {
-        yOffset = window.pageYOffset
+        yOffset = window.pageYOffset;
         scrollLoop();
     });
+
     window.addEventListener('load', setLayout);
     window.addEventListener('resize', setLayout);
     setLayout();
