@@ -1,0 +1,24 @@
+	* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			height: 50000vh;
+		}
+		body.before-load {
+			overflow-y: hidden;
+		}
+		.sample-video {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 80%;
+		}
+        .a {
+            display: flex;
+			justify-content: end;
+            margin-left: 0;
+            font-size: 200px;
+            
+            
+        }

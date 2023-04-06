@@ -102,7 +102,6 @@
         }
     }
 
-
   
     //콘솔 스크롤 위치값 출력
     function scrollLoop(){
